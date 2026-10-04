@@ -1,9 +1,8 @@
-# Exclude dev-only vendor packages from Vercel upload
+# Exclude dev-only vendor packages to stay under 250MB function limit
 Runkavex/vendor/fakerphp
 Runkavex/vendor/phpunit
 Runkavex/vendor/mockery
 Runkavex/vendor/sebastian
-Runkavex/vendor/nunomaduro
 Runkavex/vendor/filp
 Runkavex/vendor/hamcrest
 Runkavex/vendor/psy
@@ -11,3 +10,7 @@ Runkavex/vendor/nette
 Runkavex/vendor/laravel/pint
 Runkavex/vendor/laravel/sail
 Runkavex/vendor/laravel/pail
+
+# Keep node_modules and .env out
+node_modules
+.env
