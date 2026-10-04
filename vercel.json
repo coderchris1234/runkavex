@@ -1,6 +1,7 @@
 {
     "version": 2,
     "framework": null,
+    "nodejs": "18.x",
     "installCommand": "cd Runkavex && npm install",
     "buildCommand": "cd Runkavex && npm run build",
     "outputDirectory": "Runkavex/public",
