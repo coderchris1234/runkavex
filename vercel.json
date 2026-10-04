@@ -1,7 +1,6 @@
 {
     "version": 2,
     "framework": null,
-    "nodejs": "18.x",
     "installCommand": "cd Runkavex && npm install",
     "buildCommand": "cd Runkavex && npm run build",
     "outputDirectory": "Runkavex/public",
@@ -9,7 +8,7 @@
         "api/index.php": {
             "runtime": "vercel-php@0.7.4",
             "maxDuration": 30,
-            "excludeFiles": "{Runkavex/tests/**,Runkavex/database/factories/**,Runkavex/database/seeders/**,Runkavex/resources/views/**,Runkavex/.git/**,Runkavex/node_modules/**,Runkavex/public/build/**,Runkavex/public/theme/**,Runkavex/public/temp/**}"
+            "excludeFiles": "{Runkavex/tests/**,Runkavex/database/factories/**,Runkavex/database/seeders/**,Runkavex/resources/views/**,Runkavex/node_modules/**,Runkavex/public/build/**,Runkavex/public/theme/**,Runkavex/public/temp/**,Runkavex/vendor/voku/**,Runkavex/vendor/nesbot/**,Runkavex/vendor/nikic/**}"
         }
     },
     "routes": [
@@ -39,7 +38,6 @@
         }
     ],
     "env": {
-        "VERCEL_ANALYZE_BUILD_OUTPUT": "1",
         "APP_NAME": "Runkavex Capital",
         "APP_ENV": "production",
         "APP_KEY": "base64:2KJBZjZVfg4ZjiD+hWuDt4C2TeIWz7wzN3XQc3SAzLM=",
