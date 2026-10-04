@@ -19,10 +19,15 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerFactory();
-        $this->registerViewFinder();
-        $this->registerBladeCompiler();
-        $this->registerEngineResolver();
+        try {
+            $this->registerFactory();
+            $this->registerViewFinder();
+            $this->registerBladeCompiler();
+            $this->registerEngineResolver();
+        } catch (\Throwable $e) {
+            error_log('VERCEL_VIEW_ERROR: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
+            throw $e;
+        }
 
         $this->app->terminating(static function () {
             Component::flushCache();
