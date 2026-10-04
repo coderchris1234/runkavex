@@ -6,7 +6,9 @@
     "outputDirectory": "Runkavex/public",
     "functions": {
         "api/index.php": {
-            "runtime": "vercel-php@0.7.2"
+            "runtime": "vercel-php@0.6.2",
+            "memory": 1024,
+            "maxDuration": 30
         }
     },
     "routes": [
@@ -40,7 +42,7 @@
         "APP_ENV": "production",
         "APP_KEY": "base64:2KJBZjZVfg4ZjiD+hWuDt4C2TeIWz7wzN3XQc3SAzLM=",
         "APP_DEBUG": "true",
-        "APP_URL": "https://runkavex-njw2.vercel.app",
+        "APP_URL": "https://runkavex-runkavex-five.vercel.app",
         "LOG_CHANNEL": "stderr",
         "LOG_LEVEL": "error",
         "DB_CONNECTION": "sqlite",
