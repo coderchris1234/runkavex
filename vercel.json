@@ -8,7 +8,8 @@
     "functions": {
         "api/index.php": {
             "runtime": "vercel-php@0.7.4",
-            "maxDuration": 30
+            "maxDuration": 30,
+            "excludeFiles": "{Runkavex/tests/**,Runkavex/database/factories/**,Runkavex/database/seeders/**,Runkavex/resources/views/**,Runkavex/.git/**,Runkavex/node_modules/**,Runkavex/public/build/**,Runkavex/public/theme/**,Runkavex/public/temp/**}"
         }
     },
     "routes": [
@@ -38,6 +39,7 @@
         }
     ],
     "env": {
+        "VERCEL_ANALYZE_BUILD_OUTPUT": "1",
         "APP_NAME": "Runkavex Capital",
         "APP_ENV": "production",
         "APP_KEY": "base64:2KJBZjZVfg4ZjiD+hWuDt4C2TeIWz7wzN3XQc3SAzLM=",
