@@ -1,0 +1,563 @@
+@php $active = 'singalssubscriptions'; $headerTitle = 'Signals'; @endphp
+
+@extends('layouts.dashboard')
+
+@section('pageTitle', 'Signals')
+
+@section('content')
+
+        
+        
+
+        <div class="p-4 lg:p-6 space-y-6">
+            
+    <div>
+            <div x-data="{ show: true }" x-show="show" x-transition="" class="flex items-start gap-3 p-4 rounded-lg bg-loss/10 border border-loss/20 mb-4" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-loss mt-0.5 shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path>
+</svg>
+            <p class="flex-1 text-sm text-loss">You need an active subscription to view signals.</p>
+            <button @click="show = false" class="text-loss/60 hover:text-loss transition shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+</svg>
+            </button>
+        </div>
+    </div>    <div>
+    </div>
+
+    
+    <!---
+<div class="w-full overflow-hidden rounded-lg border border-surface-border bg-surface-raised mb-6">
+    
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+            "symbols": [
+                {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index"},
+                {"proName": "FOREXCOM:NSXUSD", "title": "US 100 Cash CFD"},
+                {"proName": "FX_IDC:EURUSD", "title": "EUR to USD"},
+                {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+                {"proName": "BITSTAMP:ETHUSD", "title": "Ethereum"},
+                {"proName": "FOREXCOM:UKXGBP", "title": "UK 100"}
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+        }
+        </script>
+    </div>
+    
+</div>
+--->
+    
+    <div class="flex flex-wrap gap-2 mb-6">
+    <a href="{{ url('') }}/dashboard" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+</svg>
+ Account
+    </a>
+    <a href="{{ url('') }}/dashboard/deposits" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"></path>
+</svg>
+ Deposit
+    </a>
+        <a href="{{ url('') }}/dashboard/withdrawals" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5"></path>
+</svg>
+ Withdraw
+    </a>
+            <a href="{{ url('') }}/dashboard/trade" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"></path>
+</svg>
+ Trade
+    </a>
+    <a href="{{ url('') }}/dashboard/portfolio" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"></path>
+</svg>
+ Portfolio
+    </a>
+    <a href="{{ url('') }}/dashboard/trades/positions" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"></path>
+</svg>
+ Positions
+    </a>
+    <a href="{{ url('') }}/dashboard/markets" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z"></path>
+</svg>
+ Markets
+    </a>
+        <a href="{{ url('') }}/dashboard/accounthistory" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"></path>
+</svg>
+ Transactions
+    </a>
+    <a href="{{ url('') }}/dashboard/account-settings" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
+        bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"></path>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+</svg>
+ Settings
+    </a>
+    <button @click="$dispatch('open-mail-support')" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-surface-overlay text-content-secondary hover:bg-surface-border hover:text-content-primary transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"></path>
+</svg>
+ Support
+    </button>
+</div>
+
+    
+    <div class="flex items-center justify-between mb-6">
+        <div>
+            <h2 class="text-xl font-bold text-content-primary">Signal Plans</h2>
+            <p class="text-sm text-content-secondary mt-1">Subscribe to receive premium trading signals</p>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="{{ url('') }}/dashboard/my-subscriptions" class="px-4 py-2 rounded-lg bg-surface-overlay border border-surface-border text-content-secondary hover:text-content-primary text-sm font-medium transition-colors">My Plans</a>
+            <a href="{{ url('') }}/dashboard/singalssubscriptions" class="px-4 py-2 rounded-lg bg-surface-overlay border border-surface-border text-content-secondary hover:text-content-primary text-sm font-medium transition-colors">Signals</a>
+        </div>
+    </div>
+
+    
+    <div class="rounded-xl bg-surface-raised border border-surface-border p-4 mb-6 flex items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-primary" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3"></path>
+</svg>
+        <span class="text-sm text-content-secondary">Your Balance:</span>
+        <span class="text-sm font-bold text-content-primary">$0.00</span>
+    </div>
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Alpha Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$99</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">High-accuracy signals with risk-reward ratios.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 1 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-2" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="2">
+                        <button type="button" onclick="confirmSubscription(2, 99.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Titan Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$149</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Advanced technical &amp; fundamental analysis signals.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 2 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-3" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="3">
+                        <button type="button" onclick="confirmSubscription(3, 149.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Quantum Edge Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$199</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">AI-driven signals with deep market insights.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 3 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-4" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="4">
+                        <button type="button" onclick="confirmSubscription(4, 199.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Elite Trader Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$249</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Institutional-grade signals for experienced traders.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 4 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-5" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="5">
+                        <button type="button" onclick="confirmSubscription(5, 249.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Velocity Pro Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$299</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Real-time signals with smart trade execution.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 5 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-6" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="6">
+                        <button type="button" onclick="confirmSubscription(6, 299.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Apex Master Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$399</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">High-precision, hedge-fund level trade signals.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 6 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-7" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="7">
+                        <button type="button" onclick="confirmSubscription(7, 399.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Genesis Prime Signals</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$499</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">High-accuracy signals with risk-reward ratios.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 7 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-8" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="8">
+                        <button type="button" onclick="confirmSubscription(8, 499.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+                    <div class="rounded-xl bg-surface-raised border border-surface-border overflow-hidden hover:border-primary/50 transition-colors flex flex-col">
+                
+                <div class="p-6 text-center border-b border-surface-border">
+                    <h3 class="text-lg font-bold text-content-primary mb-2">Legendary Investor Plan</h3>
+                    <div>
+                        <span class="text-3xl font-bold text-primary">$999</span>
+                    </div>
+                </div>
+
+                
+                <div class="p-6 space-y-3 flex-1">
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">General trading signals</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Lifetime mentorship, AI-powered signals, &amp; personalized strategies.Lifetime mentorship, AI-powered signals, &amp; personalized strategies.</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gain flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">24/7 Expert support</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-primary flex-shrink-0" aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+</svg>
+                        <span class="text-content-secondary">Duration: 8 Weeks</span>
+                    </div>
+                </div>
+
+                
+                <div class="px-6 pb-6">
+                    <form id="subscribe-form-9" action="{{ url('') }}/dashboard/subscribe" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">                        <input type="hidden" name="plan_id" value="9">
+                        <button type="button" onclick="confirmSubscription(9, 999.00)" class="w-full py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-content-inverse text-sm font-semibold transition-colors">
+                            Subscribe Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+        
+        
+    
+@endsection
+
+@push('head')
+<style>[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {animation-duration: 50000s;animation-name: livewireautofill;}@keyframes livewireautofill { from {} }</style>
+@endpush
+
+@push('scripts')
+<script>
+    function confirmSubscription(planId, price) {
+        Swal.fire({
+            title: 'Confirm Subscription',
+            text: 'Subscribe for $' + price.toLocaleString() + '?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#059669',
+            cancelButtonColor: '#2E2E2E',
+            confirmButtonText: 'Yes, Subscribe!',
+            cancelButtonText: 'Cancel',
+            background: '#161A1E',
+            color: '#E8EAED'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('subscribe-form-' + planId).submit();
+            }
+        });
+    }
+</script>
+@endpush

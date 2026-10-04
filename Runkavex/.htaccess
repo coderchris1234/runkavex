@@ -1,0 +1,11 @@
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "^(artisan|composer\.(json|lock)|package\.json|package-lock\.json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+Options -Indexes
