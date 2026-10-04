@@ -30,4 +30,9 @@ web: __DIR__.'/../routes/web.php',
         //
     })->create();
 
+// On Vercel, storage is read-only — redirect to /tmp
+if (!empty($_ENV['APP_STORAGE_PATH'])) {
+    $app->useStoragePath($_ENV['APP_STORAGE_PATH']);
+}
+
 return $app;
