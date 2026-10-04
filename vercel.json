@@ -50,6 +50,7 @@
         "SESSION_DRIVER": "cookie",
         "QUEUE_CONNECTION": "sync",
         "FILESYSTEM_DISK": "local",
-        "BROADCAST_CONNECTION": "log"
+        "BROADCAST_CONNECTION": "log",
+        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views"
     }
 }
