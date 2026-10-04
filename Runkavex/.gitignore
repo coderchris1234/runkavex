@@ -18,7 +18,7 @@
 /public/storage
 /storage/*.key
 /storage/pail
-/vendor
+# /vendor -- committed for Vercel deployment (no composer at build time)
 Homestead.json
 Homestead.yaml
 Thumbs.db
