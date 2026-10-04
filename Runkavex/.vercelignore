@@ -1,0 +1,6 @@
+# Keep node_modules and vendor out — they are built during deployment
+node_modules
+vendor
+
+# Don't upload local env
+.env
