@@ -39,7 +39,7 @@
         "APP_NAME": "Runkavex Capital",
         "APP_ENV": "production",
         "APP_KEY": "base64:2KJBZjZVfg4ZjiD+hWuDt4C2TeIWz7wzN3XQc3SAzLM=",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://runkavex-njw2.vercel.app",
         "LOG_CHANNEL": "stderr",
         "LOG_LEVEL": "error",
