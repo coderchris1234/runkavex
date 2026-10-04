@@ -10,18 +10,23 @@ define('LARAVEL_START', microtime(true));
 
 $root = dirname(__DIR__) . '/Runkavex';
 
-// Vercel filesystem is read-only except /tmp — redirect storage there
-foreach ([
+// Vercel filesystem is read-only except /tmp — create all required dirs
+$storageDirs = [
     '/tmp/storage/framework/sessions',
     '/tmp/storage/framework/views',
     '/tmp/storage/framework/cache/data',
     '/tmp/storage/logs',
-    '/tmp/storage/app',
-] as $dir) {
+    '/tmp/storage/app/public',
+];
+foreach ($storageDirs as $dir) {
     if (!is_dir($dir)) {
         mkdir($dir, 0775, true);
     }
 }
+
+// Override Laravel's storage path to /tmp BEFORE booting
+// This must be done via environment so the Application picks it up
+$_ENV['APP_STORAGE_PATH'] = '/tmp/storage';
 
 // Maintenance mode check
 if (file_exists($maintenance = $root . '/storage/framework/maintenance.php')) {

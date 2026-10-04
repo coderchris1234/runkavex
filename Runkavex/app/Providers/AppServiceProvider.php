@@ -13,8 +13,8 @@ class AppServiceProvider extends ServiceProvider
     {
         // On Vercel, the filesystem is read-only except for /tmp.
         // Redirect all writable Laravel paths to /tmp/storage.
-        if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL'])) {
-            $this->app->useStoragePath('/tmp/storage');
+        if (!empty($_ENV['APP_STORAGE_PATH'])) {
+            $this->app->useStoragePath($_ENV['APP_STORAGE_PATH']);
         }
     }
 
