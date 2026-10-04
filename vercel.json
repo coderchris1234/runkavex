@@ -8,7 +8,7 @@
         "api/index.php": {
             "runtime": "vercel-php@0.7.4",
             "maxDuration": 30,
-            "excludeFiles": "{tests/**,database/factories/**,database/seeders/**,node_modules/**,public/build/**,public/theme/**,public/temp/**,vendor/voku/**,vendor/nesbot/**,vendor/nikic/**}"
+            "excludeFiles": "{tests/**,database/factories/**,database/seeders/**,node_modules/**,public/build/**,public/theme/**,public/temp/**}"
         }
     },
     "routes": [

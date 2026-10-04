@@ -30,9 +30,11 @@ web: __DIR__.'/../routes/web.php',
         //
     })->create();
 
-// On Vercel, storage is read-only — redirect to /tmp
-if (!empty($_ENV['APP_STORAGE_PATH'])) {
-    $app->useStoragePath($_ENV['APP_STORAGE_PATH']);
+// On Vercel, storage is read-only — redirect to /tmp BEFORE service providers boot
+$storagePath = $_ENV['APP_STORAGE_PATH'] ?? getenv('APP_STORAGE_PATH') ?? null;
+if ($storagePath) {
+    $app->useStoragePath($storagePath);
+    $app->instance('path.storage', $storagePath);
 }
 
 return $app;

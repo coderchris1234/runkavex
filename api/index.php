@@ -25,8 +25,9 @@ foreach ($storageDirs as $dir) {
 }
 
 // Override Laravel's storage path to /tmp BEFORE booting
-// This must be done via environment so the Application picks it up
+putenv('APP_STORAGE_PATH=/tmp/storage');
 $_ENV['APP_STORAGE_PATH'] = '/tmp/storage';
+$_SERVER['APP_STORAGE_PATH'] = '/tmp/storage';
 
 // Maintenance mode check
 if (file_exists($maintenance = $root . '/storage/framework/maintenance.php')) {
