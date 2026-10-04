@@ -2,10 +2,10 @@
     "version": 2,
     "framework": null,
     "installCommand": "cd Runkavex && npm install",
-    "buildCommand": "cd Runkavex && php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\" && php composer-setup.php --quiet && php composer.phar install --no-dev --optimize-autoloader --no-interaction && npm run build",
+    "buildCommand": "cd Runkavex && npm run build",
     "outputDirectory": "Runkavex/public",
     "functions": {
-        "Runkavex/api/index.php": {
+        "api/index.php": {
             "runtime": "vercel-php@0.7.2"
         }
     },
@@ -32,7 +32,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/Runkavex/api/index.php"
+            "dest": "/api/index.php"
         }
     ],
     "env": {
