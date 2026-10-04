@@ -1,0 +1,53 @@
+{
+    "version": 2,
+    "framework": null,
+    "installCommand": "cd Runkavex && npm install",
+    "buildCommand": "cd Runkavex && php -r \"copy('https://getcomposer.org/installer', 'composer-setup.php');\" && php composer-setup.php --quiet && php composer.phar install --no-dev --optimize-autoloader --no-interaction && npm run build",
+    "outputDirectory": "Runkavex/public",
+    "functions": {
+        "Runkavex/api/index.php": {
+            "runtime": "vercel-php@0.7.2"
+        }
+    },
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/Runkavex/public/build/$1"
+        },
+        {
+            "src": "/theme/(.*)",
+            "dest": "/Runkavex/public/theme/$1"
+        },
+        {
+            "src": "/brand/(.*)",
+            "dest": "/Runkavex/public/brand/$1"
+        },
+        {
+            "src": "/js/(.*)",
+            "dest": "/Runkavex/public/js/$1"
+        },
+        {
+            "src": "/(favicon\\.ico|robots\\.txt)",
+            "dest": "/Runkavex/public/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/Runkavex/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_NAME": "Runkavex Capital",
+        "APP_ENV": "production",
+        "APP_KEY": "base64:2KJBZjZVfg4ZjiD+hWuDt4C2TeIWz7wzN3XQc3SAzLM=",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://runkavex-njw2.vercel.app",
+        "LOG_CHANNEL": "stderr",
+        "LOG_LEVEL": "error",
+        "DB_CONNECTION": "sqlite",
+        "CACHE_STORE": "array",
+        "SESSION_DRIVER": "cookie",
+        "QUEUE_CONNECTION": "sync",
+        "FILESYSTEM_DISK": "local",
+        "BROADCAST_CONNECTION": "log"
+    }
+}
