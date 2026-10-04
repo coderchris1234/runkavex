@@ -40,4 +40,13 @@ require $root . '/vendor/autoload.php';
 /** @var Application $app */
 $app = require_once $root . '/bootstrap/app.php';
 
+// Catch the BindingResolutionException directly and show the message
+set_exception_handler(function ($e) {
+    http_response_code(200);
+    header('Content-Type: text/plain');
+    echo get_class($e) . ": " . $e->getMessage() . "\n\n";
+    echo $e->getTraceAsString();
+    exit;
+});
+
 $app->handleRequest(Request::capture());
